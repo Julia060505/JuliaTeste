@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*MENU*/
+        #menu{
+            list-style: none;
+            padding: 0;
+            background-color: rgb(17, 17, 39);
+        }
+
+        #menu li {
+            display: inline;
+        }
+
+        #menu li a{
+            color: white;
+            padding: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        #menu li a :hover{
+            background-color: rgba(66, 27, 97, 0.555);
+        }
+    /*---------------------------------------*/
+    body{
+        font-family: 'Times New Roman', Times, serif;
+     }
+
+     #area{
+        color: white;
+        /*POSITION = determinando como os elementos são posicionados,cada elemento ocupa seu espaço*/
+        position: absolute;
+        /*CENTRALIZAÇÃO*/
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /*TRANSPARÊNCIA*/
+        background-color: rgba(66, 27, 97, 0.555);
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    fieldset{
+        border: 3px solid rgba(rgba(143, 141, 8, 0.589));
+    }
+    legend{
+        border: 1px solid;
+        padding: 10px;
+        text-align: center;
+        background-color: rgb(182, 172, 172);
+        border-radius: 8px;
+    }
+
+    .imputArea{
+        position: relative;
+    }
+
+    .imputUsuario{
+        background: none;
+        border: none;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.534);
+        outline: none;
+        color: black;
+        font-size: 100% ;
+    }
+
+    #submit{
+        background-color: rgba(26, 24, 24, 0.541);
+        width: 100%;
+        border: none;
+        padding: 10px;
+        color: rgba(66, 27, 97, 0.555);
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    
+    .destaque{
+        border: solid 10px rgba(143, 141, 8, 0.589);
+        color: white;
+        font-weight: bold;
+    }
+
+    form{
+        animation-name: escala;
+        animation-duration: 10s;
+    
+    }
+
+   
+    @keyframes escala{
+        from{
+            transform: scale(0,8);
+        } to{
+            transform: scale(1);
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav id="menu">
+        <ul>
+            <li> <a href="">INÍCIO</a></li>
+            <li> <a href="">SOBRE</a></li>
+            <li> <a href="">CONTATO</a></li>
+            <li> <a href="">QUEM SOMOS</a></li>
+        </ul>
+    </nav>
+   <!--DIV = divisão,seção,container dentro do html-->
+    <div id="area">
+        <!--FORM = formulário-->
+        <!--ATRIBUTO = envolve uma informação adicional que comunicamos para tag-->
+     <form action="">  
+         <!--Agrupar elementos-->
+       <fieldset>
+        <legend><b>Registro de Candidatos:</b></legend>
+        <br>
+        <div class="imputArea">
+            <input type="text" id="Nome Completo:" placeholder="Nome Completo" class= "imputUsuario" required>
+        </div>
+        <br> <br>
+        <div class="imputArea">
+        <input type="tel" id="Telefone:" placeholder="Telefone" class= "imputUsuario" required>
+        </div>
+        <br><br>
+        <div class="imputArea">
+            <p>Gênero: </p>
+            <input type="radio" id="Feminino(a)" class= "imputUsuario" required>
+            <label for="">Feminino(a)</label>
+            <input type="radio" id="Masculino(o)" class= "imputUsuario" required>
+            <label for="">Masculino(o)</label>
+             <input type="radio" id="Outros(x)" class= "imputUsuario" required>
+            <label for="">Outra identificação(x)</label>
+        </div>
+        <br><br>
+        <div class="imputArea">
+            <input type="text" id="Cidade/Estado" placeholder="Cidade/Estado"class= "imputUsuario"  required>
+        </div>
+        <br><br>
+        <div class="imputArea">
+            <input type="number" id="CPF" placeholder="CPF" class= "imputUsuario" required>
+        </div>
+        <br><br>
+        <input type="submit" id="submit">
+       </fieldset>
+     </form>
+    </div>
+
+    
+
+</body>
+<script>
+    function printarFrase(){
+        var nome = document.getElementById("Nome Completo:").value
+        var telefone = document.getElementById("Telefone:").value
+        var cidadeEstado = document.getElementById("Cidade/Estado").value 
+         
+    if(cidadeEstado == "RJ"){
+            alert(`Nome: ${nome}
+               Telefone: ${telefone}
+               Cidade/Estado: ${cidadeEstado}`)
+        }else{alert("O cadastrado(x) não pertence ao RJ")}
+    }
+</script>
+</html>
